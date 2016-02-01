@@ -1,3 +1,5 @@
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
 @font-face {
     	font-family: SourceSans;
     	src: url("fonts/SourceSansPro-Light.ttf");
@@ -13,6 +15,18 @@ body {
 	color: #f3f0f0;
 
 	text-align: center;
+
+	animation: fadeIn ease-in-out 1;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+
+	-webkit-animation: fadeIn ease-in-out 1;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+
+	-moz-animation: fadeIn ease-in-out 1;
+	-moz-animation-duration: 1s;
+	-moz-animation-fill-mode: forwards;
 }
 
 h1 {
@@ -26,6 +40,8 @@ h2 {
 	margin: 5px;
 	margin-bottom:8px;
 	font-weight: normal;
+
+
 }
 
 #photo {
@@ -54,4 +70,8 @@ h2 {
 
 .linkbutton:hover {
 	background-color: rgba(255, 255, 255, 0.25);
+}
+
+.fadein {
+
 }
