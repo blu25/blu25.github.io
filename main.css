@@ -1,4 +1,4 @@
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
 @font-face {
     	font-family: SourceSans;
@@ -6,6 +6,8 @@
 }
 
 body {
+	margin: 48px;
+
 	background-color: #000;
 	background: url("images/background-dark.jpg") no-repeat fixed;
 	background-position: bottom;
@@ -19,14 +21,12 @@ body {
 	animation: fadeIn ease-in-out 1;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
+}
 
-	-webkit-animation: fadeIn ease-in-out 1;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-fill-mode: forwards;
-
-	-moz-animation: fadeIn ease-in-out 1;
-	-moz-animation-duration: 1s;
-	-moz-animation-fill-mode: forwards;
+@media (max-width: 500px) {
+    body {
+    	margin: 10px;
+    }
 }
 
 h1 {
@@ -36,21 +36,43 @@ h1 {
 }
 
 h2 {
+	font-size: 36px;
+	margin: 0px;
+	text-align: left;
+	font-weight: normal;
+}
+
+h3 {
 	font-size: 18px;
 	margin: 5px;
 	margin-bottom:8px;
 	font-weight: normal;
+}
 
+p {
+	text-indent: 50px;
+	text-align: justify;
+	font-size: 18px;
+}
 
+a {
+	color: #000;
 }
 
 #photo {
-	margin-top: 64px;
+	/*margin-top: 64px;*/
 	width: 192px;
 	height: 192px;
 }
 
+#navbar {
+	text-align: right;
+	margin-bottom: 24px;
+}
+
 .linkbutton {
+	text-align: center;
+
 	color:#f3f0f0;
 	border-style: solid;
 	border-width: 1px;
@@ -68,10 +90,29 @@ h2 {
 	transition: background-color 0.5s;
 }
 
+.linkbutton.nav {
+	font-size: 16px;
+	width: 60px;
+}
+
 .linkbutton:hover {
 	background-color: rgba(255, 255, 255, 0.25);
 }
 
-.fadein {
+.linkbutton:active {
+	transition: background-color ease-out 0.1s;
+	background-color: rgba(0, 0, 0, 0.1);
+}
 
+#page {
+	background-color: #aaa;
+
+	background: url("images/background-dark-frost.jpg") no-repeat fixed;
+	background-position: bottom;
+	background-size: cover;
+
+	color: #000;
+	padding: 16px;
+
+	text-align: left;
 }
