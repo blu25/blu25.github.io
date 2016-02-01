@@ -8,8 +8,7 @@
 body {
 	margin: 48px;
 
-	background-color: #000;
-	background: url("images/background-dark.jpg") no-repeat fixed;
+	background: #1b151f url("images/background-dark.jpg") no-repeat fixed;
 	background-position: bottom;
 	background-size: cover;
 
@@ -102,6 +101,24 @@ a {
 .linkbutton:active {
 	transition: background-color ease-out 0.1s;
 	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.iconlink {
+	margin: 8px;
+	margin-top: 32px;
+	width: 32px;
+	height: 32px;
+	opacity: 0.8;
+	transition: opacity 0.2s;
+}
+
+.iconlink:hover {
+	opacity: 1;
+}
+
+.iconlink:active {
+	transition: background-color ease-out 0.1s;
+	opacity: 0.5;
 }
 
 #page {
