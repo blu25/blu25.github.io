@@ -8,8 +8,9 @@
 body {
 	margin: 48px;
 
-	background: #1b151f url("images/background-dark.jpg") no-repeat fixed;
-	background-position: bottom;
+	background: #765267 url("images/background_pink.jpg") no-repeat fixed;
+	/*background-position: bottom;*/
+	/*765267 1b151f*/
 	background-size: cover;
 
 	font-family: SourceSans;
@@ -55,7 +56,7 @@ p {
 }
 
 a {
-	color: #000;
+	color: #fff;
 }
 
 #photo {
@@ -121,15 +122,22 @@ a {
 	opacity: 0.5;
 }
 
-#page {
-	background-color: #aaa;
+.page {
+	background-color: rgba(243, 240, 240, 0.8);
 
-	background: url("images/background-dark-frost.jpg") no-repeat fixed;
+	/*background: url("images/background-dark-frost.jpg") no-repeat fixed;*/
 	background-position: bottom;
 	background-size: cover;
 
 	color: #000;
 	padding: 16px;
 
+	text-align: left;
+}
+
+.page a { color: #000; }
+
+#hobbieslist {
+	font-size: 18px;
 	text-align: left;
 }
