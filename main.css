@@ -126,15 +126,21 @@ a {
 	background-position: bottom;
 	background-size: cover;
 
-	color: #000;
+	color: #272424;
 	padding: 16px;
 
 	text-align: left;
 }
 
-.page a { color: #000; }
+.page a { color: #272424; }
 
 #hobbieslist {
 	font-size: 18px;
 	text-align: left;
+}
+
+#centerlink {
+	display: block;
+	text-align: center;
+	font-size: 14px;
 }
