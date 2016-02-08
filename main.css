@@ -2,15 +2,13 @@
 
 @font-face {
     	font-family: SourceSans;
-    	src: url("fonts/SourceSansPro-Light.ttf");
+    	src: url("fonts/SourceSansPro_Light.ttf");
 }
 
 body {
 	margin: 48px;
 
 	background: #765267 url("images/background_pink.jpg") no-repeat fixed;
-	/*background-position: bottom;*/
-	/*765267 1b151f*/
 	background-size: cover;
 
 	font-family: SourceSans;
@@ -125,7 +123,6 @@ a {
 .page {
 	background-color: rgba(243, 240, 240, 0.8);
 
-	/*background: url("images/background-dark-frost.jpg") no-repeat fixed;*/
 	background-position: bottom;
 	background-size: cover;
 
