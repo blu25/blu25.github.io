@@ -1,30 +1,70 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width; initial-scale=1; user-scalable=no" />
+<!doctype html>
 
-		<link href="main.css" rel="stylesheet" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
 
-		<title>Liam Brady</title>
-	</head>
+    <title>Liam Brady</title>
+    <meta name="description" content="Liam Brady's Portfolio">
+    <meta name="author" content="Liam Brady">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<body>
-		<section>
-			<img id="photo" src="images/me.png" alt="Liam Brady" />
-			<h1>Liam Brady</h1>
-			<h3>computer science student with way too many hobbies</h3>
-			<a class="linkbutton" href="bio.html">Bio</a>
-			<a class="linkbutton" href="resume.pdf">Resume</a>
-		</section>
-		
-		
-		<section>
-			<a href="https://github.com/blu25" target="_blank"><img class="iconlink" src="images/icon_git.png" alt="GitHub Page" /></a>
-			<a href="mailto:liam.brady@tufts.edu"><img class="iconlink" src="images/icon_mail.png" alt="Email" /></a>
-			<a href="https://www.instagram.com/blu2.5/" target="_blank"><img class="iconlink" src="images/icon_insta.png" alt="Instagram Page" /></a>
-			<a href="https://soundcloud.com/djblu2" target="_blank"><img class="iconlink" src="images/icon_sc.png" alt="SoundCloud Page" /></a>
-		</section>
-	</body>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="main.js"></script>
 
+  </head>
+
+  <body bgcolor="black" onload="doLoad();">
+
+    <img id="spinner" src="images/spinner.gif">
+
+    <div id="grid-container">
+            <!-- <a href="https://github.com/blu25" target="_blank" class="box mini fade3 pattern"><center>Github</center></a>
+      <a href="" target="_blank" class="box mini fade2 pattern"><center>Resume</center></a>
+      <a href="mailto:blu2.5@me.com" target="_blank" class="box mini fade1 pattern"><center>Email</center></a> -->
+      <a onclick="doTransition('../index.html')" class="box link white mini fade3 pattern" style="background-image: url('images/pattern1.png')"><center>Home</center></a>
+      <a href="" target="_blank" class="box white mini fade2 pattern" style="background-image: url('images/pattern2.png')"><center>About</center></a>
+      <a href="mailto:blu2.5@me.com" target="_blank" class="box white mini fade1 pattern" style="background-image: url('images/pattern3.png')"><center>Resume</center></a>
+
+
+      <div class="box w2 bgcover white fade1 pattern" style="background-image: url('images/pattern0.png')">
+        <!-- <img src="http://weknowyourdreams.com/images/beautiful/beautiful-05.jpg"> -->
+        <h1>Hi, I'm Liam.</h1><p>I'm a software engineer with way too many hobbies. Anything that involves the intersection of art and technology, I'm there for it. Check out some of my projects below.</p>
+      </div>
+
+      <div class="box bgcover fade2" style="background-image: url('images/me.jpg')">
+      </div>
+      <!-- TODO: replace text with logo images -->
+      <div class="box mini w3 fade4 pattern"><center>Software Projects</center></div>
+      
+      <a onclick="doTransition('projects/plane.html')" class="box link fade2" style="background-image: url('images/covers/plane.png')">
+        <img src="images/titles/plane.png" class="title">
+        <p>Low-poly fly-em-up created to learn FMOD</p>
+      </a>
+
+      <a onclick="doTransition('projects/surface.html')" class="box w2 link bgtall fade1" style="background-image: url('images/covers/surface.png')">
+        <img src="images/titles/surface.png" class="title">
+        <p>Low-poly blast-em-up created in 48 hours for Ludum Dare</p>
+      </a>
+
+      <div class="box mini w3 fade2 pattern"><center>Hardware + Software Projects</center></div>
+
+      <a onclick="doTransition('projects/icoltrane.html')" class="box link fade4" style="background-image: url('images/covers/icoltrane.png')">
+        <h2>iColtrane</h2>
+        <p>MIDI instrument for exploring John Coltrane's circle of fifths diagram</p>
+      </a>
+
+      <a onclick="doTransition('projects/imat.html')" class="box link fade3" style="background-image: url('images/covers/imat.png')">
+        <h2>iMat</h2>
+        <p>Interactive floor projection that adapts to brain activity</p>
+      </a>
+
+      <a onclick="doTransition('projects/musicbox.html')" class="box link fade2" style="background-image: url('images/covers/music box.png')">
+        <h2>Music Box</h2>
+        <p>Hands-free live music performance controller</p>
+      </a>
+
+    </div>
+  </body>
 </html>

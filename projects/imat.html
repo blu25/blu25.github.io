@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Liam Brady - iMat</title>
+    <meta name="description" content="iMat by Liam Brady">
+    <meta name="author" content="Liam Brady">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../main.js"></script>
+
+  </head>
+
+  <body bgcolor="black" onload="doLoad();">
+
+    <img id="spinner" src="../images/spinner.gif">
+
+    <div id="grid-container">
+      <a onclick="doTransition('../index.html')" class="box link white mini fade3 pattern" style="background-image: url('../images/pattern1.png')"><center>Home</center></a>
+      <a href="" target="_blank" class="box white mini fade2 pattern" style="background-image: url('../images/pattern2.png')"><center>About</center></a>
+      <a href="mailto:blu2.5@me.com" target="_blank" class="box white mini fade1 pattern" style="background-image: url('../images/pattern3.png')"><center>Resume</center></a>
+
+      <div class="box w3 bgcover fade1" style="background-image: url('../images/covers/imat.png')">
+        <h1>iMat</h1>
+      </div>
+
+      <div class="box fade4">
+        <p class="paragraph right">An interactive floor projection built as a NuVu Studio project. It tracks people's locations and displays their "shadows" on the ground, where they can play with the various toys the iMat has to offer.</p>
+      </div>
+
+      <div class="box h2 w2 fade3 white">
+        <iframe src="https://player.vimeo.com/video/35295607?color=f736da&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <div class="box white fade1 pattern center" style="background-image: url('../images/pattern3.png')">
+        <div class="centertile">
+          <img src="../images/svg/code.svg">
+          <p class="center">Written in Processing</p>
+        </div>
+      </div>
+
+      <div class="box w2 h2 fade2 bgcover" style="background-image: url('../images/shots/im-play.jpg')">
+      </div>
+
+      <div class="box white fade1 pattern center" style="background-image: url('../images/pattern6.png')">
+        <div class="centertile">
+          <img src="../images/svg/camera.svg">
+          <p class="center">A Kinect generates a depth map of the people in the iMat's space</p>
+        </div>
+      </div>
+
+      <div class="box white fade2 pattern center" style="background-image: url('../images/pattern2.png')">
+        <div class="centertile">
+          <img src="../images/svg/target.svg">
+          <p class="center">OpenCV converts the map into blobs, which is used to track position</p>
+        </div>
+      </div>
+
+      <div class="box white fade1 pattern center" style="background-image: url('../images/pattern6.png')">
+        <div class="centertile">
+          <img src="../images/svg/brain.svg">
+          <p class="center">An EEG brain wave reader is used to change how toys behave</p>
+        </div>
+      </div>
+
+      <div class="box white fade2 pattern center" style="background-image: url('../images/pattern2.png')">
+        <div class="centertile">
+          <img src="../images/svg/paint.svg">
+          <p class="center">The paint toy's color is modulated by the amount of brain activity</p>
+        </div>
+      </div>
+
+      <a href="https://blu25.github.io/" target="_blank" class="box fade1 center">
+        <div class="centertile">
+          <img src="../images/svg/git.svg">
+          <p class="center">Check out the source code on GitHub.</p>
+        </div>
+      </a>
+
+      <!-- <div class="box white fade4 pattern center" style="background-image: url('../images/pattern2.png')">
+        <div class="centertile">
+          <img src="../images/svg/audio.svg">
+          <p class="center">Computer program running Max/MSP takes raw data.</p>
+        </div>
+      </div> -->
+
+    </div>
+  </body>
+</html>

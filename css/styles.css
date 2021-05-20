@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+:root {
+	--img1: url("images/imat.png");
+}
+
+#grid-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	/*grid-template-rows: repeat(4, 25vw);*/
+	grid-gap: 10px;
+	transition: opacity 1s ease-in-out;
+}
+
+a {
+	box-shadow: 0px 0px 5px white;
+}
+
+a:hover {
+	box-shadow: 0px 0px 10px white;
+}
+
+.box {
+	position: relative;
+	height: 25vw;
+	border-radius: 8px;
+	padding: 16px;
+	
+	color: white;
+	font-family: 'Source Sans Pro', sans-serif;
+	overflow: hidden;
+	text-align: left;
+
+	/*background-image: url('http://weknowyourdreams.com/images/beautiful/beautiful-05.jpg');*/
+	background-color: black;
+	background-size: auto 100%;
+	background-position: center;
+
+	text-decoration: none;
+	opacity: 0;
+}
+
+.box.center {
+	/*line-height: 25vw;*/
+	text-align: center;
+	justify-content: center;
+	vertical-align: center;
+}
+
+.pattern {
+	background-size: 90px !important;
+}
+
+.link:hover {
+	background-size: auto 110%;
+	cursor: pointer;
+}
+
+.link p {
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.link:hover p {
+	opacity: 1;
+}
+
+
+.bgtall {
+	background-size: 100% auto;
+}
+
+.link.bgtall:hover {
+	background-size: 110% auto;
+}
+
+.bgcover {
+	/* Note: does not work with links */
+	background-size: cover;
+}
+
+.white {
+	background-color: #ddd;
+	color: black;
+	text-shadow: none;
+}
+
+.box h1 {
+	margin: 0px;
+	font-weight: 400;
+	font-size: 48pt;
+}
+
+.box h2 {
+	margin: 0px;
+	font-weight: 300;
+	font-size: 32pt;
+}
+
+.box p {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	font-weight: 300;
+	font-size: 2.3vw;
+	/*text-align: right;*/
+	padding: 0px;
+	margin: 16px;
+	/*top: 50px;*/
+}
+
+.box ul {
+	font-size: 2.5vw;
+	font-weight: 200;
+}
+
+.box p.paragraph {
+	top: 0px;
+	text-align: justify;
+	font-size: 2.3vw;
+}
+
+.box p.center {
+	text-align: center;
+	position: relative;
+}
+
+.box p.right {
+	/*text-align: gn: right;*/
+}
+
+.box img {
+	height: 12vw;
+}
+
+.w2 {
+	grid-column-start: span 2;
+}
+
+.w3 {
+	grid-column-start: span 3;
+}
+
+.h2 {
+	grid-row-start: span 2;
+	height: calc(50vw + 42px);
+}
+
+.mini {
+	height: 24px !important;
+	font-size: 30px;
+	font-weight: 400;
+	padding-top: 0px;
+	margin: 0px;
+}
+
+.fade1 {
+	transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
+}
+.fade2 {
+	transition: opacity 0.8s ease-in-out, background-size 0.5s ease-in-out;
+}
+.fade3 {
+	transition: opacity 1.1s ease-in-out, background-size 0.5s ease-in-out;
+}
+.fade4 {
+	transition: opacity 1.4s ease-in-out, background-size 0.5s ease-in-out;
+}
+
+.centertile {
+	position: relative;
+	top: 12.5vw; /*vw because safari can't handle percentages*/
+	transform: translate(0%, -50%);
+}
+
+#spinner {
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	left: calc(50% - 32px);
+	top: calc(50% - 32px);
+	transition: opacity 0.5s ease-in-out;
+}
+
+.title {
+	height: 48px !important;
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 800px) {
+	.grid-container {
+		/*grid-gap: 30px;*/
+		/*grid-template-columns: 1fr !important;*/
+	}
+
+	.box {
+		/*grid-column: 1 2 !important;
+		grid-row: 1 2 !important;*/
+		grid-column-start: span 3;
+		grid-row-start: span 1;
+		height: 40vw;
+	}
+
+	.box p {
+		font-size: 5vw !important;
+	}
+
+	.box ul {
+		font-size: 4vw;
+	}
+
+	.box img {
+		height: 24vw;
+	}
+
+	.centertile {
+		top: 20vw; /*vw because safari can't handle percentages*/
+	}
+
+	.link p {
+		opacity: 1;
+	}
+
+	.box h1 {
+		font-size: 32pt;
+	}
+}

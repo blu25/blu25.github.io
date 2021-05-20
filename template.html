@@ -1,0 +1,26 @@
+<title>Liam Brady</title>
+<meta name="description" content="Liam Brady's Portfolio">
+<meta name="author" content="Liam Brady">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/styles.css">
+<link rel="preload" as="image" href="images/spinner.gif">
+
+<!-- The script tag is to fix a bug in Chrome where transitions fire on loading the page -->
+<!-- https://stackoverflow.com/questions/14389566/stop-css-transition-from-firing-on-page-load -->
+<script>
+  function doLoad() {
+    document.getElementById("spinner").style.opacity = 0;
+    [...document.getElementsByClassName("box")].forEach(x => x.style.opacity = 1);
+  }
+
+  function doTransition(url) {
+    [...document.getElementsByClassName("box")].forEach(x => x.style.opacity = 0);
+    setTimeout(function(){window.location.replace(url);}, 1300);
+    // setTimeout(function(){window.location.href = url;}, 1300);
+  }
+
+  // If things are taking too long, just load the page anyway. Better to have content
+  // that doesn't look great than nothing at all.
+  setTimeout(doLoad, 2000);
+</script>

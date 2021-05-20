@@ -1,0 +1,95 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Liam Brady - iColtrane</title>
+    <meta name="description" content="iColtrane by Liam Brady">
+    <meta name="author" content="Liam Brady">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../main.js"></script>
+
+  </head>
+
+  <body bgcolor="black" onload="doLoad();">
+
+    <img id="spinner" src="../images/spinner.gif">
+
+    <div id="grid-container">
+      <a onclick="doTransition('../index.html')" class="box link white mini fade3 pattern" style="background-image: url('../images/pattern1.png')"><center>Home</center></a>
+      <a href="" target="_blank" class="box white mini fade2 pattern" style="background-image: url('../images/pattern2.png')"><center>About</center></a>
+      <a href="mailto:blu2.5@me.com" target="_blank" class="box white mini fade1 pattern" style="background-image: url('../images/pattern3.png')"><center>Resume</center></a>
+
+      <div class="box w3 bgcover fade1" style="background-image: url('../images/covers/icoltrane.png')">
+        <h1>iColtrane</h1>
+      </div>
+
+      <div class="box fade4">
+        <p class="paragraph right">A digital musical instrument that can play John Coltrane's circle of fifths tone circle and allow musicians to physically explore an otherwise purely theoretical concept. Each of the curved silicone buttons corresponds to a different note in the tone circle.</p>
+      </div>
+
+      <div class="box white w2 fade2 bgcover" style="background-image: url('../images/shots/ic-lights.jpg')">
+      </div>
+
+
+      <div class="box h2 w2 fade4 white">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/n71PW6OKUXw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <a href="https://roelhollander.eu/en/blog-saxophone/Coltrane-Tone-Circle/" target="_blank" class="box white fade2 pattern center" style="background-image: url('../images/pattern3.png')">
+        <div class="centertile">
+          <img src="../images/svg/coltrane.png">
+          <p class="center">Coltrane's circle is a way to show how notes and scales relate to each other</p>
+        </div>
+      </a>
+
+      <div class="box bgcover fade3" style="background-image: url('../images/shots/ic-sensors.jpg')">
+      </div>
+
+      <div class="box white fade1 pattern center" style="background-image: url('../images/pattern5.png')">
+        <div class="centertile">
+          <img src="../images/svg/touch.svg">
+          <p class="center">15 pressure sensors measure how hard the player presses down</p>
+        </div>
+      </div>
+
+      <div class="box white fade3 pattern center" style="background-image: url('../images/pattern3.png')">
+        <div class="centertile">
+          <img src="../images/svg/synth.svg">
+          <p class="center">Max/MSP reads the raw sensor data and converts it to a MIDI signal</p>
+        </div>
+      </div>
+
+      <div class="box white fade1 pattern center" style="background-image: url('../images/pattern1.png')">
+        <div class="centertile">
+          <img src="../images/svg/audio.svg">
+          <p class="center">A Reason patch turns that signal into actual sound output</p>
+        </div>
+      </div>
+
+      <div class="box w2 bgcover fade4" style="background-image: url('../images/shots/ic-assembly.jpg')">
+      </div>
+
+      <div class="box white fade2 pattern center" style="background-image: url('../images/pattern6.png')">
+        <div class="centertile">
+          <img src="../images/svg/piano.svg">
+          <p class="center">Build chords for the large keys with using 3 blue buttons at the top</p>
+        </div>
+      </div>
+
+      <!-- TODO: email Paul Lehrman to see if the source code is still in existence -->
+
+      <!-- <a href="https://blu25.github.io/" target="_blank" class="box fade1 center">
+        <div class="centertile">
+          <img src="../images/svg/git.svg">
+          <p class="center">Check out the source code on GitHub.</p>
+        </div>
+      </a> -->
+
+    </div>
+  </body>
+</html>
