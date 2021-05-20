@@ -11,8 +11,11 @@ function doLoad() {
 
 function doTransition(url) {
   [...document.getElementsByClassName("box")].forEach(x => x.style.opacity = 0);
-  setTimeout(function(){window.location.replace(url);}, 1300);
-  // setTimeout(function(){window.location.href = url;}, 1300);
+  // setTimeout(function(){window.location.replace(url);}, 1300);
+  setTimeout(function(){
+  	hasLoaded = false;
+  	window.location.href = url;
+  }, 1300);
 }
 
 // If things are taking too long, just load the page anyway. Better to have content
