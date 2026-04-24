@@ -108,28 +108,18 @@
         }
     </style>
     <script>
-        // Check for autoreload param
-        const urlParams = new URLSearchParams(window.location.search);
-        const isReloaded = urlParams.has('autoreload');
-
         document.addEventListener('DOMContentLoaded', () => {
             const statusEl = document.querySelector('.status');
             const iframeContainer = document.getElementById('iframe-container');
             
-            if (isReloaded) {
-                statusEl.textContent = 'Reloaded - Skipping Framebust';
-                statusEl.style.background = 'rgba(34, 197, 94, 0.1)';
-                statusEl.style.color = '#22c55e';
-                statusEl.style.borderColor = 'rgba(34, 197, 94, 0.2)';
-                
-                iframeContainer.innerHTML = '<div style="color: #64748b;">Iframe not loaded (skipped on reload)</div>';
-                
-                // Remove the param from the URL in the bar
-                // This ensures a manual refresh starts the process over
-                history.replaceState(null, '', window.location.pathname);
-                console.log('Top frame: Cleaned up URL.');
-            } else {
-                statusEl.textContent = 'First Run - Testing Intervention';
+          statusEl.textContent = 'Waiting 3 seconds before framebust...';
+          
+          // Wait 3 seconds before framebust
+          setTimeout(() => {
+            statusEl.textContent = 'Attempting framebust...';
+            statusEl.style.background = 'rgba(245, 158, 11, 0.1)';
+            statusEl.style.color = '#fbbf24';
+            statusEl.style.borderColor = 'rgba(245, 158, 11, 0.2)';
                 
                 // Create and inject the framebusting iframe
                 const iframe = document.createElement('iframe');
@@ -137,13 +127,13 @@
                 iframe.src = "data:text/html;charset=utf-8,<!DOCTYPE html><html><head><style>body{font-family:sans-serif;color:%2394a3b8;background:%231e293b;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}</style></head><body><div>Iframe content. Attempting framebust...</div><script>console.log('Iframe: Attempting to navigate top frame...');try{window.top.location='https://example.com';}catch(e){console.error('Iframe failed to navigate top:',e);}<\/script></body></html>";
                 iframeContainer.appendChild(iframe);
                 
-                // Set timeout to reload with param after 1 second
-                console.log('Top frame: Setting timeout for auto-reload...');
+            // 1 second later do a regular refresh
+            console.log('Top frame: Setting timeout for refresh...');
                 setTimeout(() => {
-                    console.log('Top frame: Initiating auto-reload...');
-                    window.location.href = window.location.pathname + '?autoreload=true';
+                  console.log('Top frame: Initiating regular refresh...');
+                  window.location.reload();
                 }, 1000);
-            }
+          }, 3000);
         });
     </script>
 </head>
@@ -153,7 +143,7 @@
         <h1>Framebusting Demo</h1>
         <div class="status">Testing Intervention</div>
         <p>
-            This page demonstrates conditional behavior. On first run, it attempts a framebust. A second later, it reloads and skips the attempt.
+            This page attempts a framebust after 3 seconds, and performs a regular refresh 1 second later.
         </p>
         
         <div class="iframe-wrapper">
@@ -161,7 +151,7 @@
         </div>
 
         <div class="note">
-            Manual refresh or reload will start the cycle over because the URL is cleaned up on the second run.
+            The page will loop continuously unless the framebust succeeds.
         </div>
     </div>
 
