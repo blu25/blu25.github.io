@@ -10,17 +10,18 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Opt in to page transitions inline so it never waits on the stylesheet -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Tag the transition on the arriving page so the CSS can tell it apart from the old page -->
+    <script>addEventListener("pagereveal", e => e.viewTransition?.types.add("incoming"));</script>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="main.js"></script>
 
   </head>
 
-  <body bgcolor="black" onpageshow="doLoad();">
-
-    <img id="spinner" src="images/spinner.gif">
+  <body bgcolor="black">
 
     <div id="grid-container">
-      <a onclick="doTransition('index.html')" class="box link white mini fade3 pattern" style="background-image: url('images/pattern1.png')"><center>Home</center></a>
+      <a href="index.html" class="box link white mini fade3 pattern" style="background-image: url('images/pattern1.png')"><center>Home</center></a>
       <a href="mailto:liambrady250@gmail.com" target="_blank" class="box white mini fade2 pattern" style="background-image: url('images/pattern2.png')"><center>Email</center></a>
       <a href="resume.pdf" target="_blank" class="box white mini fade1 pattern" style="background-image: url('images/pattern3.png')"><center>Resume</center></a>
 
@@ -34,29 +35,29 @@
 
       <div class="box mini w3 fade4 pattern"><center>Software Projects</center></div>
       
-      <a onclick="doTransition('projects/plane.html')" class="box link fade2" style="background-image: url('images/covers/plane.png')">
+      <a href="projects/plane.html" class="box link fade2" style="background-image: url('images/covers/plane.png')">
         <img src="images/titles/plane.png" class="title">
         <p>Low-poly fly-em-up created to learn FMOD</p>
       </a>
 
-      <a onclick="doTransition('projects/surface.html')" class="box w2 link bgtall fade1" style="background-image: url('images/covers/surface.png')">
+      <a href="projects/surface.html" class="box w2 link bgtall fade1" style="background-image: url('images/covers/surface.png')">
         <img src="images/titles/surface.png" class="title">
         <p>Low-poly blast-em-up created in 48 hours for Ludum Dare</p>
       </a>
 
       <div class="box mini w3 fade2 pattern"><center>Hardware + Software Projects</center></div>
 
-      <a onclick="doTransition('projects/icoltrane.html')" class="box link fade4" style="background-image: url('images/covers/icoltrane.png')">
+      <a href="projects/icoltrane.html" class="box link fade4" style="background-image: url('images/covers/icoltrane.png')">
         <h2>iColtrane</h2>
         <p>MIDI instrument for exploring John Coltrane's circle of fifths diagram</p>
       </a>
 
-      <a onclick="doTransition('projects/imat.html')" class="box link fade3" style="background-image: url('images/covers/imat.png')">
+      <a href="projects/imat.html" class="box link fade3" style="background-image: url('images/covers/imat.png')">
         <h2>iMat</h2>
         <p>Interactive floor projection that adapts to brain activity</p>
       </a>
 
-      <a onclick="doTransition('projects/musicbox.html')" class="box link fade2" style="background-image: url('images/covers/music box.png')">
+      <a href="projects/musicbox.html" class="box link fade2" style="background-image: url('images/covers/music box.png')">
         <h2>Music Box</h2>
         <p>Hands-free live music performance controller</p>
       </a>

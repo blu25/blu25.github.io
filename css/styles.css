@@ -37,7 +37,10 @@ a:hover {
 	background-position: center;
 
 	text-decoration: none;
-	opacity: 0;
+
+	animation: tile-in 0.5s ease-in-out both;
+	animation-delay: calc(var(--i, 0) * 0.3s);
+	transition: background-size 0.5s ease-in-out;
 }
 
 .box.center {
@@ -155,32 +158,63 @@ a:hover {
 	margin: 0px;
 }
 
-.fade1 {
-	transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
+/* Stagger order for the entry and exit animations */
+.fade1 { --i: 0; view-transition-class: fade1; }
+.fade2 { --i: 1; view-transition-class: fade2; }
+.fade3 { --i: 2; view-transition-class: fade3; }
+.fade4 { --i: 3; view-transition-class: fade4; }
+
+@keyframes tile-in {
+	from { opacity: 0; }
 }
-.fade2 {
-	transition: opacity 0.8s ease-in-out, background-size 0.5s ease-in-out;
+
+/* cross-page transitions */
+.box {
+	view-transition-name: match-element;
 }
-.fade3 {
-	transition: opacity 1.1s ease-in-out, background-size 0.5s ease-in-out;
+
+::view-transition-old(*) {
+	animation: page-out 0.4s ease-in-out both;
 }
-.fade4 {
-	transition: opacity 1.4s ease-in-out, background-size 0.5s ease-in-out;
+
+::view-transition-old(.fade2) { animation-delay: 0.3s; }
+::view-transition-old(.fade3) { animation-delay: 0.6s; }
+::view-transition-old(.fade4) { animation-delay: 0.9s; }
+
+/* Keep the old page on top of the new one until it has faded out */
+::view-transition-old(root) {
+	z-index: 1;
+}
+
+::view-transition-new(root) {
+	animation: none;
+}
+
+/* Don't transition away until every tile is faded out. */
+html:active-view-transition-type(incoming) .box {
+	view-transition-name: none;
+	animation-play-state: paused;
+}
+
+@keyframes page-out {
+	to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	@view-transition {
+		navigation: none;
+	}
+
+	.box {
+		animation: none;
+		transition: none;
+	}
 }
 
 .centertile {
 	position: relative;
 	top: 12.5vw; /*vw because safari can't handle percentages*/
 	transform: translate(0%, -50%);
-}
-
-#spinner {
-	position: absolute;
-	width: 64px;
-	height: 64px;
-	left: calc(50% - 32px);
-	top: calc(50% - 32px);
-	transition: opacity 0.5s ease-in-out;
 }
 
 .title {
@@ -190,11 +224,6 @@ a:hover {
 
 /* Mobile */
 @media only screen and (max-width: 800px) {
-	.grid-container {
-		/*grid-gap: 30px;*/
-		/*grid-template-columns: 1fr !important;*/
-	}
-
 	.box {
 		/*grid-column: 1 2 !important;
 		grid-row: 1 2 !important;*/
