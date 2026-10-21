@@ -36,7 +36,7 @@
 
   Code review
 
-  1. Grid sizing. The fixed height: 25vw on .box and the .h2 { height: calc(50vw + 42px) } magic number are fragile. Size the rows on the grid instead:
+(DONE)  1. Grid sizing. The fixed height: 25vw on .box and the .h2 { height: calc(50vw + 42px) } magic number are fragile. Size the rows on the grid instead:
   #grid-container {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 20vw;          /* or minmax(160px, 20vw) */
@@ -47,7 +47,7 @@
      dense is the key piece for mixed tile sizes. It back-fills gaps so you don't have to hand-order the tiles.
   2. .centertile hack. top: 12.5vw + translate(-50%), and the "Safari can't do %" comment, are obsolete. Use .center { display: grid; place-items: center; 
      text-align: center; }. You can also drop .box p { position: absolute } and lay out with flex or grid.
-  3. background-size hover zoom. It repaints every frame, so it's janky, and it's why .bgcover "does not work with links". Use a real <img> in each tile with
+(DONE)  3. background-size hover zoom. It repaints every frame, so it's janky, and it's why .bgcover "does not work with links". Use a real <img> in each tile with
      object-fit: cover and transform: scale(1.1) on hover. That's GPU-composited and works for every tile. You also get alt, loading="lazy" and srcset.
   4. Stagger classes. Replace fade1–fade4 with one --i custom property (shown above).
   5. Patterns. The inline style="background-image:url('../images/patternN.png')" repeats everywhere, with ../ path juggling. Use .p1….p6 classes in the CSS,
