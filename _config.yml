@@ -1,3 +1,6 @@
+url: https://blu25.github.io
+description: Liam Brady is a security engineer on Chrome Security who builds games, instruments, and other art + tech projects on the side.
+
 # Keep notes and tooling files off the published site
 exclude:
   - review.md

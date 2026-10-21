@@ -79,24 +79,68 @@
     - images/titles/music-box.png
   - .DS_Store files are committed even though .gitignore lists them. Clear them with git rm --cached (**/.DS_Store).
 
-  Design review
+  Design review (v2: bolder, not Windows)
 
-  Lean harder into Metro. Right now the site mixes Metro with skeuomorphic touches: 8px radius, white glow shadows, textured PNG patterns. Real Metro was
-  flat:
-  - Square or near-square corners (0–2px), no glow shadows.
-  - Solid accent colours instead of pattern textures. Pick one per project or category.
-  - Section labels as plain text headings, not tiles. Win8 put group names above tile groups. The .mini 24px tiles with a 30px font are fighting this.
-  - A press-tilt effect: .box:active { transform: scale(.97) }, or a small perspective rotation toward the click.
-  - "Live tiles": a CSS keyframe that flips a project tile between its cover and a one-line description every few seconds. It's pure CSS and very on-theme.
-  - Four tile sizes are enough: 1×1, 2×1, 1×2, 2×2. Use 4 columns on desktop, 2 on mobile (Metro phone used 2 small columns). The current mobile layout is 1
-    column of identical 40vw boxes, which loses the grid character entirely.
+  Diagnosis: the project art is great (cinematic, dark, saturated) but the frame around it is timid and dated. Everything is the same weight
+  (Source Sans Light everywhere, similar sizes, same tile height, same 10px gap), and the decorative layer (pastel textured patterns, 8px radius,
+  white glow on links) reads as 2012 scrapbook rather than intentional. Bold comes from contrast: big vs. small, heavy vs. light, one loud colour vs.
+  black. Ordered by impact.
+
+  1. A real type system. This is the single biggest lever.
+     - Pair a display face with character for names and headings (e.g. Space Grotesk, Bricolage Grotesque or Archivo at 700–800) with a quiet body
+       face (keep Source Sans 3 at 400, not 300; light grey-on-black at 300 is thin and hard to read).
+     - Go big on the name: "Liam Brady" at clamp(3.5rem, 9vw, 8rem), tight letter-spacing (-0.03em), line-height 0.9. One oversized line does more
+       than any decoration.
+     - Invert the tile hierarchy: project titles are currently weight 300 and the captions are almost as large. Titles bold, captions ~1rem.
+     - Section labels left-aligned and editorial, e.g. a small numbered kicker ("01 / Games") above a large heading, instead of small centred text.
+
+  2. Replace the pastel patterns with one strong palette.
+     - Black base, off-white text, and ONE signature accent (an electric colour that holds up against the art: acid yellow-green, hot coral, or
+       Surface's cyan). Use it sparingly: links, tags, the stat numbers, hover states.
+     - Optional per-project accent pulled from each cover (Surface cyan, iColtrane magenta, Paper Plane amber, iMat blue, Music Box violet), set as
+       --accent on the page's <body>. Each project page then has its own colour while the system stays the same.
+     - Drop the pattern PNGs, the glow box-shadows, and the #ddd frame around video embeds. Corners 0–4px. Hover = image zoom + a 2px accent outline.
+
+  3. Make the hero a statement, and use your drawing.
+     - The hand-drawn self-portrait (mecircle.png) is a distinctive personal mark nobody else has. Put it in the hero next to the giant name. Line art
+       ties into the "art + tech" pitch better than another photo does, and it now matches the favicon.
+     - Extend the hand-drawn line as a small motif: a scribbled underline under the name, a drawn arrow toward "projects below". Use it two or three
+       times, no more.
+     - Hero copy as one short, punchy line under the name ("Security engineer on Chrome. Builds instruments and games after hours."), with the longer
+       paragraph below it at body size.
+
+  4. Project pages: numbers instead of clip-art icons.
+     - The pastel icon tiles (brain, Unity logo, piano) feel generic. Lead with big typographic stats in the accent colour: "25th of 1,145", "48 hrs",
+       "15 sensors", "24 LEDs", each with a one-line caption. Huge numerals are bolder and more specific than icons.
+     - Add a meta strip under the title: year, role, tools, and the Play/Source links as buttons (right now they're buried at the bottom).
+     - End every project with a full-width "Next project →" tile showing the next cover, so people keep browsing instead of bouncing.
+     - Body text: left-align it (justified text makes rivers) and don't put it in fixed-height tiles. The iColtrane description is currently cut off
+       mid-sentence ("…a different note in the tone").
+
+  5. Break the grid rhythm.
+     - Every tile is the same height with the same gap, so nothing leads. Make one feature project much bigger (Surface, the award winner, could be
+       full-width and taller) and give the others different sizes.
+     - Give sections more black space between them (e.g. 96px) than tiles get inside a section (10px). Grouping by space is what makes a grid look
+       designed.
+     - Let one image per page go full-bleed (edge to edge, no gap) for drama.
+
+  6. Lighter nav.
+     - Five chunky pastel tiles at a 30px font are the loudest thing on the page and they're the least important. Use a slim top bar instead: the
+       doodle face plus "Liam Brady" on the left, small text links on the right (Resume, GitHub, LinkedIn, Email), accent underline on hover.
+
+  7. One signature interaction (pick one, keep it subtle).
+     - The doodle face's eyes follow the cursor or blink occasionally (an SVG version of the drawing makes this easy). It's personal, memorable, and
+       on-message for someone who does art + tech.
+     - Or tiles tilt slightly toward the cursor on hover (respect prefers-reduced-motion).
+
+  Suggested order: 1 + 2 together (type + palette, mostly CSS), then 3 (hero), then 4 (project pages), then 5–7.
 
   Content and UX:
-  - Descriptions only show on hover, but recruiters skim. Show them always, on a bottom gradient scrim (linear-gradient(transparent, rgba(0,0,0,.7))). White
+(DONE)  - Descriptions only show on hover, but recruiters skim. Show them always, on a bottom gradient scrim (linear-gradient(transparent, rgba(0,0,0,.7))). White
     text on bright cover art is currently unreadable without one.
-  - There are no GitHub or LinkedIn tiles. Add them; they're the first things recruiters click.
-  - The hero should say what role you're after ("software engineer focused on X"). "Too many hobbies" is charming, but it shouldn't be the only line.
-  - Add tech tags to the tiles (Unity, Max/MSP, Arduino) so people can scan your skills from the home page.
-  - Project pages are inconsistent: some headers use title images, others an <h1>. Pick one.
+(DONE)  - There are no GitHub or LinkedIn tiles. Add them; they're the first things recruiters click.
+(DONE)  - The hero should say what role you're after ("software engineer focused on X"). "Too many hobbies" is charming, but it shouldn't be the only line.
+(DONE)  - Add tech tags to the tiles (Unity, Max/MSP, Arduino) so people can scan your skills from the home page.
+(DONE)  - Project pages are inconsistent: some headers use title images, others an <h1>. Pick one.
 (DONE)  - Typos: "sountrack" (plane), "meteoroids" (surface), "with using 3 blue buttons" (iColtrane), "lowpoly" → "low-poly".
-  - Add og:title, og:image and a favicon, so a pasted link shows a preview card in recruiter Slack or email.
+(DONE)  - Add og:title, og:image and a favicon, so a pasted link shows a preview card in recruiter Slack or email.

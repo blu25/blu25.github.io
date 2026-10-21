@@ -60,13 +60,37 @@ iframe {
 .p5 { background-image: url("../images/pattern5.png"); }
 .p6 { background-image: url("../images/pattern6.png"); }
 
-.link p {
-	opacity: 0;
-	transition: opacity 0.5s ease-in-out;
+/* Header row: nav links share one full-width row */
+.nav {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 10px;
 }
 
-.link:hover p, .link:focus-visible p {
-	opacity: 1;
+/* Darken photo tiles behind their text so it stays readable */
+.box:has(> img.bg ~ :is(h1, h2, p))::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), transparent 40%, transparent 50%, rgba(0, 0, 0, 0.75));
+}
+
+/* Tech used in a project */
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	list-style: none;
+	margin: 8px 0 0;
+	padding: 0;
+}
+
+.tags li {
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 2px 8px;
+	font-size: clamp(0.8rem, 1.1vw, 1rem);
 }
 
 
@@ -213,10 +237,6 @@ html:active-view-transition-type(incoming) .box {
 	}
 }
 
-.title {
-	height: 48px !important;
-}
-
 
 /* Mobile */
 @media only screen and (max-width: 800px) {
@@ -238,7 +258,24 @@ html:active-view-transition-type(incoming) .box {
 		height: 24vw;
 	}
 
-	.link p {
-		opacity: 1;
+	/* Let the intro grow to fit its text instead of overlapping the heading */
+	.hero {
+		height: auto;
+	}
+
+	.hero p {
+		position: static;
+		margin: 16px 0 0;
+	}
+
+	.nav .box {
+		grid-column-start: auto;
+		padding: 0;
+		font-size: 1rem;
+		line-height: 24px;
+	}
+
+	.tags li {
+		font-size: 0.875rem;
 	}
 }

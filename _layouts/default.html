@@ -4,9 +4,23 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Liam Brady{% if page.title %} - {{ page.title }}{% endif %}</title>
-    <meta name="description" content="{% if page.title %}{{ page.title }} by Liam Brady{% else %}Liam Brady's Portfolio{% endif %}">
+    {% capture title %}Liam Brady{% if page.title %} - {{ page.title }}{% endif %}{% endcapture %}
+    <title>{{ title }}</title>
+    {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+    <meta name="description" content="{{ description }}">
     <meta name="author" content="Liam Brady">
+
+    <!-- Link previews in Slack, email, social -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Liam Brady">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ page.image | default: '/images/og/home.jpg' | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="{{ '/images/icon-192.png' | relative_url }}" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
