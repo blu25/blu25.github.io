@@ -15,11 +15,14 @@
     <!-- Tag the transition on the arriving page so the CSS can tell it apart from the old page -->
     <script>addEventListener("pagereveal", e => e.viewTransition?.types.add("incoming"));</script>
     <script src="{{ '/js/fade-out.js' | relative_url }}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;700&display=swap">
     <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
 
   </head>
 
-  <body bgcolor="black">
+  <body>
 
     <div id="grid-container">
       {% include nav.html %}

@@ -45,20 +45,23 @@
   .w2 { grid-column: span 2; }
   .h2 { grid-row: span 2; }       /* no height math */
      dense is the key piece for mixed tile sizes. It back-fills gaps so you don't have to hand-order the tiles.
-  2. .centertile hack. top: 12.5vw + translate(-50%), and the "Safari can't do %" comment, are obsolete. Use .center { display: grid; place-items: center; 
+(DONE)  2. .centertile hack. top: 12.5vw + translate(-50%), and the "Safari can't do %" comment, are obsolete. Use .center { display: grid; place-items: center; 
      text-align: center; }. You can also drop .box p { position: absolute } and lay out with flex or grid.
+     Note: .box p { position: absolute } was kept; it still places tile descriptions at the bottom.
 (DONE)  3. background-size hover zoom. It repaints every frame, so it's janky, and it's why .bgcover "does not work with links". Use a real <img> in each tile with
      object-fit: cover and transform: scale(1.1) on hover. That's GPU-composited and works for every tile. You also get alt, loading="lazy" and srcset.
-  4. Stagger classes. Replace fade1–fade4 with one --i custom property (shown above).
-  5. Patterns. The inline style="background-image:url('../images/patternN.png')" repeats everywhere, with ../ path juggling. Use .p1….p6 classes in the CSS,
+(DONE)  4. Stagger classes. Replace fade1–fade4 with one --i custom property (shown above).
+     Note: fade1–fade4 were kept. The fade-out runs on view-transition snapshots, which can't read --i, so
+     view-transition-class (set by these classes) is the only way to stagger it. The classes now drive both directions.
+(DONE)  5. Patterns. The inline style="background-image:url('../images/patternN.png')" repeats everywhere, with ../ path juggling. Use .p1….p6 classes in the CSS,
      and the paths resolve relative to the CSS file once.
 (DONE)  6. Duplicated header. The Home/Email/Resume tiles are copy-pasted into all 6 pages. A tiny custom element would remove that
      (customElements.define('site-nav', …), about 10 lines, no library). Or accept the duplication; it's honest at this size.
-  7. Dead or broken CSS: .grid-container in the media query is a class, but the element uses an id, so that rule never applies. Also dead: --img1, .box 
+(DONE)  7. Dead or broken CSS: .grid-container in the media query is a class, but the element uses an id, so that rule never applies. Also dead: --img1, .box 
      p.right, and a lot of commented-out rules.
-  8. Deprecated HTML: <center>, bgcolor="black" and frameborder. Also target="_blank" on mailto: does nothing.
-  9. Accessibility: no alt on any <img>. Hover-only descriptions are invisible to keyboard users, so add :focus-visible next to :hover.
-  10. Typography: mixed pt and vw sizes. font-size: clamp(1rem, 2.3vw, 1.5rem) stops text getting tiny or huge. The font loads through @import in the CSS,
+(DONE)  8. Deprecated HTML: <center>, bgcolor="black" and frameborder. Also target="_blank" on mailto: does nothing.
+(DONE)  9. Accessibility: no alt on any <img>. Hover-only descriptions are invisible to keyboard users, so add :focus-visible next to :hover.
+(DONE)  10. Typography: mixed pt and vw sizes. font-size: clamp(1rem, 2.3vw, 1.5rem) stops text getting tiny or huge. The font loads through @import in the CSS,
       which is render-blocking and chained. Either switch to <link rel="preconnect"> + <link>, or self-host woff2. The fonts/*.ttf files are unused. Also,
       Source Sans Pro is now called "Source Sans 3".
 

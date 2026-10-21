@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
-
-:root {
-	--img1: url("images/imat.png");
+body {
+	background-color: black;
 }
 
 #grid-container {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	/*grid-template-rows: repeat(4, 25vw);*/
 	grid-gap: 10px;
-	transition: opacity 1s ease-in-out;
 }
 
 a {
 	box-shadow: 0px 0px 5px white;
 }
 
-a:hover {
+a:hover, a:focus-visible {
 	box-shadow: 0px 0px 10px white;
+}
+
+iframe {
+	border: 0;
 }
 
 .box {
@@ -27,11 +27,10 @@ a:hover {
 	padding: 16px;
 	
 	color: white;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Source Sans 3', sans-serif;
 	overflow: hidden;
 	text-align: left;
 
-	/*background-image: url('http://weknowyourdreams.com/images/beautiful/beautiful-05.jpg');*/
 	background-color: black;
 	background-position: center;
 	/* Own stacking context so img.bg can sit behind the content but above the background */
@@ -44,26 +43,29 @@ a:hover {
 }
 
 .box.center {
-	/*line-height: 25vw;*/
+	display: grid;
+	place-items: center;
 	text-align: center;
-	justify-content: center;
-	vertical-align: center;
 }
 
 .pattern {
-	background-size: 90px !important;
+	background-size: 90px;
 }
 
-.link:hover {
-	cursor: pointer;
-}
+.p0 { background-image: url("../images/pattern0.png"); }
+.p1 { background-image: url("../images/pattern1.png"); }
+.p2 { background-image: url("../images/pattern2.png"); }
+.p3 { background-image: url("../images/pattern3.png"); }
+.p4 { background-image: url("../images/pattern4.png"); }
+.p5 { background-image: url("../images/pattern5.png"); }
+.p6 { background-image: url("../images/pattern6.png"); }
 
 .link p {
 	opacity: 0;
 	transition: opacity 0.5s ease-in-out;
 }
 
-.link:hover p {
+.link:hover p, .link:focus-visible p {
 	opacity: 1;
 }
 
@@ -79,26 +81,26 @@ a:hover {
 	transition: transform 0.5s ease-in-out;
 }
 
-.link:hover > img.bg {
+.link:hover > img.bg, .link:focus-visible > img.bg {
 	transform: scale(1.1);
 }
 
 .white {
 	background-color: #ddd;
 	color: black;
-	text-shadow: none;
 }
 
+/* Font sizes follow the tile size, within limits */
 .box h1 {
 	margin: 0px;
 	font-weight: 400;
-	font-size: 48pt;
+	font-size: clamp(2.5rem, 4.5vw, 4rem);
 }
 
 .box h2 {
 	margin: 0px;
 	font-weight: 300;
-	font-size: 32pt;
+	font-size: clamp(2rem, 3vw, 2.75rem);
 }
 
 .box p {
@@ -107,31 +109,19 @@ a:hover {
 	right: 0px;
 	left: 0px;
 	font-weight: 300;
-	font-size: 2.3vw;
-	/*text-align: right;*/
+	font-size: clamp(1rem, 2.3vw, 2rem);
 	padding: 0px;
 	margin: 16px;
-	/*top: 50px;*/
-}
-
-.box ul {
-	font-size: 2.5vw;
-	font-weight: 200;
 }
 
 .box p.paragraph {
 	top: 0px;
 	text-align: justify;
-	font-size: 2.3vw;
 }
 
 .box p.center {
 	text-align: center;
 	position: relative;
-}
-
-.box p.right {
-	/*text-align: gn: right;*/
 }
 
 .box img {
@@ -154,7 +144,8 @@ a:hover {
 
 .mini {
 	height: 24px !important;
-	font-size: 30px;
+	font-size: 1.875rem;
+	text-align: center;
 	font-weight: 400;
 	padding-top: 0px;
 	margin: 0px;
@@ -222,12 +213,6 @@ html:active-view-transition-type(incoming) .box {
 	}
 }
 
-.centertile {
-	position: relative;
-	top: 12.5vw; /*vw because safari can't handle percentages*/
-	transform: translate(0%, -50%);
-}
-
 .title {
 	height: 48px !important;
 }
@@ -236,34 +221,24 @@ html:active-view-transition-type(incoming) .box {
 /* Mobile */
 @media only screen and (max-width: 800px) {
 	.box {
-		/*grid-column: 1 2 !important;
-		grid-row: 1 2 !important;*/
 		grid-column-start: span 3;
 		grid-row-start: span 1;
 		height: 40vw;
 	}
 
-	.box p {
-		font-size: 5vw !important;
+	.box h2 {
+		font-size: clamp(2rem, 6vw, 2.75rem);
 	}
 
-	.box ul {
-		font-size: 4vw;
+	.box p {
+		font-size: clamp(1rem, 5vw, 2.5rem);
 	}
 
 	.box img {
 		height: 24vw;
 	}
 
-	.centertile {
-		top: 20vw; /*vw because safari can't handle percentages*/
-	}
-
 	.link p {
 		opacity: 1;
-	}
-
-	.box h1 {
-		font-size: 32pt;
 	}
 }
