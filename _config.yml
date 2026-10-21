@@ -1,0 +1,5 @@
+# Keep notes and tooling files off the published site
+exclude:
+  - review.md
+  - Gemfile
+  - Gemfile.lock

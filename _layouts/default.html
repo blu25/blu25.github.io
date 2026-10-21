@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Liam Brady{% if page.title %} - {{ page.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.title %}{{ page.title }} by Liam Brady{% else %}Liam Brady's Portfolio{% endif %}">
+    <meta name="author" content="Liam Brady">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Opt in to page transitions inline so it never waits on the stylesheet -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Tag the transition on the arriving page so the CSS can tell it apart from the old page -->
+    <script>addEventListener("pagereveal", e => e.viewTransition?.types.add("incoming"));</script>
+    <script src="{{ '/js/fade-out.js' | relative_url }}"></script>
+    <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
+
+  </head>
+
+  <body bgcolor="black">
+
+    <div id="grid-container">
+      {% include nav.html %}
+{{ content }}
+    </div>
+  </body>
+</html>

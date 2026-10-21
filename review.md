@@ -8,9 +8,9 @@
     page can show a blank grid with every tile stuck at opacity 0. The hasLoaded flag was patching this on index only.
 (DONE)  - The spinner and the 2s fallback only exist because onload waits for about 21MB of images (see Performance below).
 (DONE)  - hasLoaded = false; is an implicit global.
-  - template.html is out of date: it uses location.replace, which breaks the back button.
+(DONE)  - template.html is out of date: it uses location.replace, which breaks the back button.
 
-  Fix: cross-document View Transitions plus a CSS entry animation. This needs no JS at all.
+(DONE)  Fix: cross-document View Transitions plus a CSS entry animation. This needs no JS at all.
 
   @view-transition { navigation: auto; }
 
@@ -27,7 +27,7 @@
 
   <a href="projects/surface.html" class="box link w2" style="--i:1">
 
-  - Links become real <a href>. You can delete main.js, the spinner, hasLoaded, the fade1–fade4 classes and the Chrome-transition-on-load workaround. That bug
+(DONE)  - Links become real <a href>. You can delete main.js, the spinner, hasLoaded, the fade1–fade4 classes and the Chrome-transition-on-load workaround. That bug
     only affects transition, not animation.
   - The Metro bonus: give the cover tile on index and the header tile on the project page the same view-transition-name: surface;. The browser then morphs the
     tile into the page header, which is the Win8 "tile opens app" feel.
@@ -52,7 +52,7 @@
   4. Stagger classes. Replace fade1–fade4 with one --i custom property (shown above).
   5. Patterns. The inline style="background-image:url('../images/patternN.png')" repeats everywhere, with ../ path juggling. Use .p1….p6 classes in the CSS,
      and the paths resolve relative to the CSS file once.
-  6. Duplicated header. The Home/Email/Resume tiles are copy-pasted into all 6 pages. A tiny custom element would remove that
+(DONE)  6. Duplicated header. The Home/Email/Resume tiles are copy-pasted into all 6 pages. A tiny custom element would remove that
      (customElements.define('site-nav', …), about 10 lines, no library). Or accept the duplication; it's honest at this size.
   7. Dead or broken CSS: .grid-container in the media query is a class, but the element uses an id, so that rule never applies. Also dead: --img1, .box 
      p.right, and a lot of commented-out rules.
