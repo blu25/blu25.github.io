@@ -39,7 +39,7 @@ a:hover {
 	text-decoration: none;
 
 	animation: tile-in 0.5s ease-in-out both;
-	animation-delay: calc(var(--i, 0) * 0.3s);
+	animation-delay: calc(var(--i, 0) * 0.1s);
 	transition: background-size 0.5s ease-in-out;
 }
 
@@ -177,9 +177,9 @@ a:hover {
 	animation: page-out 0.4s ease-in-out both;
 }
 
-::view-transition-old(.fade2) { animation-delay: 0.3s; }
-::view-transition-old(.fade3) { animation-delay: 0.6s; }
-::view-transition-old(.fade4) { animation-delay: 0.9s; }
+::view-transition-old(.fade2) { animation-delay: 0.1s; }
+::view-transition-old(.fade3) { animation-delay: 0.2s; }
+::view-transition-old(.fade4) { animation-delay: 0.3s; }
 
 /* Keep the old page on top of the new one until it has faded out */
 ::view-transition-old(root) {
@@ -198,6 +198,12 @@ html:active-view-transition-type(incoming) .box {
 
 @keyframes page-out {
 	to { opacity: 0; }
+}
+
+/* Fallback fade-out, toggled by js/fade-out.js */
+.leaving .box {
+	animation: page-out 0.4s ease-in-out both;
+	animation-delay: calc(var(--i, 0) * 0.1s);
 }
 
 @media (prefers-reduced-motion: reduce) {

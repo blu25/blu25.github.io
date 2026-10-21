@@ -1,13 +1,13 @@
-  Page transitions: replace the hack
+(DONE)  Page transitions: replace the hack
 
   Current problems:
-  - The <a onclick="doTransition(...)"> links have no href. That means no keyboard focus, no middle-click or "open in new tab", no link preview on hover, and
+(DONE)  - The <a onclick="doTransition(...)"> links have no href. That means no keyboard focus, no middle-click or "open in new tab", no link preview on hover, and
     crawlers can't follow them.
-  - The 1300ms setTimeout has to stay in sync with the CSS by hand, and it already doesn't: .fade4 runs for 1.4s, so the last tiles get cut off.
-  - index.html uses onpageshow but the project pages use onload. onload doesn't fire when the back/forward cache restores a page, so going back to a project
+(DONE)  - The 1300ms setTimeout has to stay in sync with the CSS by hand, and it already doesn't: .fade4 runs for 1.4s, so the last tiles get cut off.
+(DONE)  - index.html uses onpageshow but the project pages use onload. onload doesn't fire when the back/forward cache restores a page, so going back to a project
     page can show a blank grid with every tile stuck at opacity 0. The hasLoaded flag was patching this on index only.
-  - The spinner and the 2s fallback only exist because onload waits for about 21MB of images (see Performance below).
-  - hasLoaded = false; is an implicit global.
+(DONE)  - The spinner and the 2s fallback only exist because onload waits for about 21MB of images (see Performance below).
+(DONE)  - hasLoaded = false; is an implicit global.
   - template.html is out of date: it uses location.replace, which breaks the back button.
 
   Fix: cross-document View Transitions plus a CSS entry animation. This needs no JS at all.
@@ -62,7 +62,7 @@
       which is render-blocking and chained. Either switch to <link rel="preconnect"> + <link>, or self-host woff2. The fonts/*.ttf files are unused. Also,
       Source Sans Pro is now called "Source Sans 3".
 
-  Performance (the root cause of the spinner)
+(DONE)  Performance (the root cause of the spinner)
 
   - The covers are about 15MB of 3000px PNGs, and the screenshots another 6MB, for tiles about 400px wide. Converting to WebP/AVIF at around 1200px brings
     each one to about 100–200KB, and the page becomes instant without a spinner.
