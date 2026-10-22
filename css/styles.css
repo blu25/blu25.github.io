@@ -1,5 +1,6 @@
+/* Light page so the dark tiles stand out as blocks */
 body {
-	background-color: black;
+	background-color: #e4e5e7;
 }
 
 #grid-container {
@@ -103,7 +104,7 @@ iframe {
 
 .topbar a {
 	box-shadow: none;
-	color: white;
+	color: #141414;
 	text-decoration: none;
 }
 
@@ -133,10 +134,14 @@ iframe {
 	transition: filter 0.2s;
 }
 
-/* Links glow, matching the link tiles */
+/* The doodle is drawn in white lines; flip it to dark for the light page */
+.brand img {
+	filter: invert(1);
+}
+
 .brand:hover, .brand:focus-visible,
 .icon:hover svg, .icon:focus-visible svg {
-	filter: drop-shadow(0 0 6px white);
+	filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.35));
 }
 
 .topbar a:focus-visible {
@@ -240,6 +245,12 @@ iframe {
 	grid-row-start: span 2;
 	/* Stretch over both rows instead of computing their height */
 	height: auto;
+}
+
+/* Section labels sit on the page, not in a tile */
+.box.mini {
+	background: none;
+	color: #141414;
 }
 
 .mini {
