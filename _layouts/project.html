@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% if page.project %}{% assign project = site.data.projects | where: "slug", page.project | first %}{% endif %}
+      <header class="box cover-hero fade1">
+        {% include cover.html project=project sizes="100vw" %}
+        <h1>{{ project.title }}</h1>
+      </header>
+
+      <div class="meta enter fade2">
+        <ul class="tags">{% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}{% if project.year %}<li class="year">{{ project.year }}</li>{% endif %}</ul>
+        {% if project.links %}<div class="actions">{% for link in project.links %}<a href="{{ link.url }}" target="_blank" class="button">{{ link.label }}</a>{% endfor %}</div>{% endif %}
+      </div>
+{{ content }}
+      {% for p in site.data.projects %}{% if p.slug == page.project %}{% assign next_index = forloop.index | modulo: site.data.projects.size %}{% endif %}{% endfor %}
+      {% assign next = site.data.projects[next_index] %}
+      <a href="{{ '/projects/' | append: next.slug | append: '.html' | relative_url }}" class="box next fade3" style="--accent: {{ next.accent }}">
+        {% include cover.html project=next sizes="100vw" lazy=true %}
+        <span class="next-label">Next project</span>
+        <span class="next-title">{{ next.title }}</span>
+      </a>

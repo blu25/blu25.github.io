@@ -6,3 +6,10 @@ exclude:
   - review.md
   - Gemfile
   - Gemfile.lock
+
+# Local `jekyll serve` only (GitHub Pages ignores this). Jekyll's default
+# no-store header makes Chrome's page transitions flash white; no-cache
+# still re-checks every file, so edits show up on refresh.
+webrick:
+  headers:
+    Cache-Control: no-cache

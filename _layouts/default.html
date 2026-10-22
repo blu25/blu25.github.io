@@ -36,10 +36,10 @@
 
   </head>
 
-  <body>
+  <body style="--primary: {{ page.primary | default: '#ffd84d' }}; --secondary: {{ page.secondary | default: '#f0eee9' }}">
 
+    {% include nav.html %}
     <div id="grid-container">
-      {% include nav.html %}
 {{ content }}
     </div>
   </body>

@@ -8,12 +8,15 @@ body {
 	grid-gap: 10px;
 }
 
-a {
-	box-shadow: 0px 0px 5px white;
+/* Anything clickable glows in the page's primary colour; nothing else does */
+a.box, .button {
+	box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 55%, transparent);
+	transition: box-shadow 0.3s ease-in-out;
 }
 
-a:hover, a:focus-visible {
-	box-shadow: 0px 0px 10px white;
+a.box:hover, a.box:focus-visible, .button:hover, .button:focus-visible {
+	box-shadow: 0 0 24px 2px color-mix(in srgb, var(--primary) 90%, transparent);
+	outline: none;
 }
 
 iframe {
@@ -23,7 +26,6 @@ iframe {
 .box {
 	position: relative;
 	height: 25vw;
-	border-radius: 8px;
 	padding: 16px;
 	
 	color: white;
@@ -48,24 +50,97 @@ iframe {
 	text-align: center;
 }
 
-.pattern {
-	background-size: 90px;
+/* Project page header: title and action buttons along the bottom */
+.box.cover-hero {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 16px;
 }
 
-.p0 { background-image: url("../images/pattern0.png"); }
-.p1 { background-image: url("../images/pattern1.png"); }
-.p2 { background-image: url("../images/pattern2.png"); }
-.p3 { background-image: url("../images/pattern3.png"); }
-.p4 { background-image: url("../images/pattern4.png"); }
-.p5 { background-image: url("../images/pattern5.png"); }
-.p6 { background-image: url("../images/pattern6.png"); }
+/* Title logos, sized like the text headings they replace */
+.box .title {
+	display: block;
+	height: clamp(32px, 3.4vw, 52px);
+}
 
-/* Header row: nav links share one full-width row */
-.nav {
-	grid-column: 1 / -1;
+.box.cover-hero .title {
+	height: clamp(48px, 6vw, 80px);
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.button {
+	padding: 8px 18px;
+	background-color: var(--primary);
+	color: black;
+	font-weight: 700;
+	font-size: 1.125rem;
+	text-decoration: none;
+}
+
+.button + .button {
+	background-color: rgba(0, 0, 0, 0.6);
+	color: var(--primary);
+}
+
+/* Top bar: name on the left, contact icons on the right */
+.topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	padding: 4px 0 14px;
+	font-family: 'Source Sans 3', sans-serif;
+	/* Same on every page, so it stays put during page transitions */
+	view-transition-name: topbar;
+}
+
+.topbar a {
+	box-shadow: none;
+	color: white;
+	text-decoration: none;
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 1.75rem;
+	font-weight: 400;
+}
+
+.topbar nav {
+	display: flex;
+	gap: 6px;
+}
+
+.icon {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-gap: 10px;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+}
+
+.icon svg {
+	width: 26px;
+	height: 26px;
+	transition: filter 0.2s;
+}
+
+/* Links glow, matching the link tiles */
+.brand:hover, .brand:focus-visible,
+.icon:hover svg, .icon:focus-visible svg {
+	filter: drop-shadow(0 0 6px white);
+}
+
+.topbar a:focus-visible {
+	outline: none;
 }
 
 /* Darken photo tiles behind their text so it stays readable */
@@ -109,8 +184,9 @@ iframe {
 	transform: scale(1.1);
 }
 
-.white {
-	background-color: #ddd;
+/* Non-clickable info tiles */
+.info {
+	background-color: var(--secondary);
 	color: black;
 }
 
@@ -207,6 +283,16 @@ iframe {
 	animation: none;
 }
 
+/* The top bar is identical on every page, so swap it without animating */
+::view-transition-group(topbar),
+::view-transition-new(topbar) {
+	animation: none;
+}
+
+::view-transition-old(topbar) {
+	display: none;
+}
+
 /* Don't transition away until every tile is faded out. */
 html:active-view-transition-type(incoming) .box {
 	view-transition-name: none;
@@ -268,11 +354,12 @@ html:active-view-transition-type(incoming) .box {
 		margin: 16px 0 0;
 	}
 
-	.nav .box {
-		grid-column-start: auto;
-		padding: 0;
-		font-size: 1rem;
-		line-height: 24px;
+	.brand {
+		font-size: 1.375rem;
+	}
+
+	.icon {
+		width: 38px;
 	}
 
 	.tags li {
