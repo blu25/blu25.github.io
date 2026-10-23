@@ -195,6 +195,12 @@ iframe {
 	color: var(--secondary-text);
 }
 
+/* Info tiles that are links take the primary colour, like buttons */
+a.box.info {
+	background-color: var(--primary);
+	color: black;
+}
+
 /* Font sizes follow the tile size, within limits */
 .box h1 {
 	margin: 0px;
