@@ -6,6 +6,22 @@ exclude:
   - review.md
   - Gemfile
   - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - node_modules
+  - scripts
+
+# One file per project in _projects/, published at /projects/<file name>.html
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name.html
+
+defaults:
+  - scope:
+      type: projects
+    values:
+      layout: project
 
 # Local `jekyll serve` only (GitHub Pages ignores this). Jekyll's default
 # no-store header makes Chrome's page transitions flash white; no-cache

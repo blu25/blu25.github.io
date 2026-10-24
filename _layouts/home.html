@@ -1,0 +1,8 @@
+---
+layout: default
+---
+{%- comment -%} Home page: just the tiles listed in index.html's front matter {%- endcomment %}
+{% for tile in page.tiles %}
+{%- assign fade = forloop.index0 | modulo: 4 | plus: 1 %}
+{%- include tile.html tile=tile fade=fade %}
+{% endfor %}

@@ -1,0 +1,96 @@
+# Made by `npm run images`. Don't edit by hand; rerun the script instead.
+icoltrane:
+  base: /images/covers/icoltrane
+  width: 3064
+  height: 1482
+  widths: [480, 800, 1200, 1600, 2400, 3064]
+imat:
+  base: /images/covers/imat
+  width: 3062
+  height: 1480
+  widths: [480, 800, 1200, 1600, 2400, 3062]
+music-box:
+  base: /images/covers/music-box
+  width: 3058
+  height: 1478
+  widths: [480, 800, 1200, 1600, 2400, 3058]
+plane:
+  base: /images/covers/plane
+  width: 3072
+  height: 1920
+  widths: [480, 800, 1200, 1600, 2400, 3072]
+surface:
+  base: /images/covers/surface
+  width: 1779
+  height: 915
+  widths: [480, 800, 1200, 1600, 1779]
+traintime:
+  base: /images/covers/traintime
+  width: 3840
+  height: 1852
+  widths: [480, 800, 1200, 1600, 2400, 3840]
+ic-assembly:
+  base: /images/shots/ic-assembly
+  width: 2560
+  height: 1372
+  widths: [480, 800, 1200, 1600, 2400, 2560]
+ic-lights:
+  base: /images/shots/ic-lights
+  width: 3214
+  height: 920
+  widths: [480, 800, 1200, 1600, 2400, 3214]
+ic-sensors:
+  base: /images/shots/ic-sensors
+  width: 1452
+  height: 1088
+  widths: [480, 800, 1200, 1452]
+im-play:
+  base: /images/shots/im-play
+  width: 1335
+  height: 1143
+  widths: [480, 800, 1200, 1335]
+mb-complete:
+  base: /images/shots/mb-complete
+  width: 2048
+  height: 1113
+  widths: [480, 800, 1200, 1600, 2048]
+me:
+  base: /images/shots/me
+  width: 2048
+  height: 1365
+  widths: [480, 800, 1200, 1600, 2048]
+pp-field:
+  base: /images/shots/pp-field
+  width: 3072
+  height: 1920
+  widths: [480, 800, 1200, 1600, 2400, 3072]
+sf-explode:
+  base: /images/shots/sf-explode
+  width: 2732
+  height: 1692
+  widths: [480, 800, 1200, 1600, 2400, 2732]
+sf-fight:
+  base: /images/shots/sf-fight
+  width: 3072
+  height: 1920
+  widths: [480, 800, 1200, 1600, 2400, 3072]
+sf-up:
+  base: /images/shots/sf-up
+  width: 2732
+  height: 1698
+  widths: [480, 800, 1200, 1600, 2400, 2732]
+tt-detail:
+  base: /images/shots/tt-detail
+  width: 4000
+  height: 6000
+  widths: [480, 800, 1200, 1600, 2400, 4000]
+tt-happy:
+  base: /images/shots/tt-happy
+  width: 3908
+  height: 3908
+  widths: [480, 800, 1200, 1600, 2400, 3908]
+tt-map:
+  base: /images/shots/tt-map
+  width: 4000
+  height: 6000
+  widths: [480, 800, 1200, 1600, 2400, 4000]

@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "images": "node scripts/images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}

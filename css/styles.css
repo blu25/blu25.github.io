@@ -157,22 +157,6 @@ iframe {
 	background: linear-gradient(rgba(0, 0, 0, 0.5), transparent 40%, transparent 50%, rgba(0, 0, 0, 0.75));
 }
 
-/* Tech used in a project */
-.tags {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 6px;
-	list-style: none;
-	margin: 8px 0 0;
-	padding: 0;
-}
-
-.tags li {
-	background-color: rgba(0, 0, 0, 0.6);
-	padding: 2px 8px;
-	font-size: clamp(0.8rem, 1.1vw, 1rem);
-}
-
 
 /* Photo filling the tile, behind its content */
 .box > img.bg {
@@ -235,8 +219,16 @@ a.box.info {
 	position: relative;
 }
 
-.box img {
+.box img, .glyph {
 	height: 12vw;
+}
+
+/* SVG icons are used as a mask so they take the tile's text colour */
+.glyph {
+	display: inline-block;
+	aspect-ratio: 1;
+	background-color: currentColor;
+	mask: var(--src) center / contain no-repeat;
 }
 
 .w2 {
@@ -357,7 +349,7 @@ html:active-view-transition-type(incoming) .box {
 		font-size: clamp(1rem, 5vw, 2.5rem);
 	}
 
-	.box img {
+	.box img, .glyph {
 		height: 24vw;
 	}
 
@@ -377,9 +369,5 @@ html:active-view-transition-type(incoming) .box {
 
 	.icon {
 		width: 38px;
-	}
-
-	.tags li {
-		font-size: 0.875rem;
 	}
 }
