@@ -1,4 +1,7 @@
 source "https://rubygems.org"
 
-# Same Jekyll and plugin versions GitHub Pages builds with
-gem "github-pages", group: :jekyll_plugins
+# Local preview only: GitHub Pages builds with its own toolchain and ignores
+# this file. The site uses no plugins, so plain Jekyll is enough. 3.10 matches
+# the version Pages runs and has a smaller dependency tree than Jekyll 4.
+gem "jekyll", "~> 3.10"
+gem "kramdown-parser-gfm", "~> 1.1"

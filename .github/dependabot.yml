@@ -1,0 +1,19 @@
+# Opens PRs for dependency updates. Security fixes also need "Dependabot
+# security updates" turned on under Settings → Code security.
+version: 2
+updates:
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      gems:
+        patterns: ["*"]
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm:
+        patterns: ["*"]
